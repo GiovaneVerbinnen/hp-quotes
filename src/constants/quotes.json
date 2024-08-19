@@ -1,0 +1,52 @@
+[
+  {
+    "sentence": "It does not do to dwell on dreams and forget to live.",
+    "author": "Albus Dumbledore",
+    "movie_slug": ["stone"]
+  },
+  {
+    "sentence": "You’re a wizard, Harry.",
+    "author": "Rubeus Hagrid",
+    "movie_slug": ["stone"]
+  },
+  {
+    "sentence": "I am what I am, an’ I’m not ashamed.",
+    "author": "Rubeus Hagrid",
+    "movie_slug": ["secrets"]
+  },
+  {
+    "sentence": "Happiness can be found even in the darkest of times, if one only remembers to turn on the light.",
+    "author": "Albus Dumbledore",
+    "movie_slug": ["azkaban"]
+  },
+  {
+    "sentence": "The world had ended, so why had the battle not ceased?",
+    "author": "Professor Snape",
+    "movie_slug": ["fire"]
+  },
+  {
+    "sentence": "We are only as strong as we are united, as weak as we are divided.",
+    "author": "Albus Dumbledore",
+    "movie_slug": ["order"]
+  },
+  {
+    "sentence": "You have your mother’s eyes.",
+    "author": "Severus Snape",
+    "movie_slug": ["prince"]
+  },
+  {
+    "sentence": "The last enemy that shall be destroyed is death.",
+    "author": "Albus Dumbledore",
+    "movie_slug": ["hallows1"]
+  },
+  {
+    "sentence": "Do not pity the dead, Harry. Pity the living, and above all, pity those who live without love.",
+    "author": "Albus Dumbledore",
+    "movie_slug": ["hallows2"]
+  },
+  {
+    "sentence": "I am not worried, Harry. I am with you.",
+    "author": "Albus Dumbledore",
+    "movie_slug": ["hallows2"]
+  }
+]

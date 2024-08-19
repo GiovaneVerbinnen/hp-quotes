@@ -1,0 +1,50 @@
+[
+    {
+        "title": "Harry Potter and the Philosopher's Stone",
+        "year": 2001,
+        "director": "Chris Columbus",
+        "slug":"stone"
+    },
+    {
+        "title": "Harry Potter and the Chamber of Secrets",
+        "year": 2002,
+        "director": "Chris Columbus",
+        "slug":"secrets"
+    },
+    {
+        "title": "Harry Potter and the Prisoner of Azkaban",
+        "year": 2004,
+        "director": "Alfonso Cuarón",
+        "slug":"azkaban"
+    },
+    {
+        "title": "Harry Potter and the Goblet of Fire",
+        "year": 2005,
+        "director": "Mike Newell",
+        "slug":"fire"
+    },
+    {
+        "title": "Harry Potter and the Order of the Phoenix",
+        "year": 2007,
+        "director": "David Yates",
+        "slug":"phoenix"
+    },
+    {
+        "title": "Harry Potter and the Half-Blood Prince",
+        "year": 2009,
+        "director": "David Yates",
+        "slug":"prince"
+    },
+    {
+        "title": "Harry Potter and the Deathly Hallows – Part 1",
+        "year": 2010,
+        "director": "David Yates",
+        "slug":"hallows1"
+    },
+    {
+        "title": "Harry Potter and the Deathly Hallows – Part 2",
+        "year": 2011,
+        "director": "David Yates",
+        "slug":"hallows2"
+    }
+]
