@@ -1,0 +1,24 @@
+{
+  "name": "hp-quotes",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npx nodemon --no-warnings src/index.js "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.5.3"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "dotenv": "^16.4.5",
+    "eslint": "^8.57.0"
+  }
+}
