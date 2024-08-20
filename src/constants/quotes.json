@@ -48,5 +48,10 @@
     "sentence": "I am not worried, Harry. I am with you.",
     "author": "Albus Dumbledore",
     "movie_slug": ["hallows2"]
-  }
+  },
+  {
+  "sentence": "I solemnly swear that I am up to no good.",
+  "author": "Harry Potter",
+  "movie_slug": ["azkaban", "phoenix", "prince"]
+}
 ]

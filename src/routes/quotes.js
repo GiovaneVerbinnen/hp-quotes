@@ -3,10 +3,245 @@ import { Quote, Movie } from '../model/index.js';
 
 const app = Router();
 
+/**
+ * @swagger
+ * tags:
+ *   name: Quotes
+ *   description: API for managing movie quotes
+ */
+
+/**
+ * @swagger
+ * /:
+ *   get:
+ *     summary: Retrieve a list of quotes
+ *     tags: [Quotes]
+ *     responses:
+ *       200:
+ *         description: A list of quotes
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   _id:
+ *                     type: string
+ *                     description: The quote ID
+ *                     example: 60b6c5edfc13ae148e000021
+ *                   sentence:
+ *                     type: string
+ *                     description: The quote sentence
+ *                     example: "I solemnly swear that I am up to no good."
+ *                   author:
+ *                     type: string
+ *                     description: The author of the quote
+ *                     example: "Harry Potter"
+ *                   movie_slug:
+ *                     type: array
+ *                     description: The slugs of the movies where the quote appears
+ *                     items:
+ *                       type: string
+ *                     example: ["azkaban", "phoenix"]
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /:
+ *   post:
+ *     summary: Create a new quote
+ *     tags: [Quotes]
+ *     parameters:
+ *        - in: body
+ *          name: quote
+ *          schema:
+ *            type: object
+ *            required:
+ *              - sentence
+ *              - author
+ *              - movie_slug
+ *            properties:
+ *              sentence:
+ *                type: string
+ *                description: The quote sentence
+ *                example: "I solemnly swear that I am up to no good."
+ *              author:
+ *                type: string
+ *                description: The author of the quote
+ *                example: "Harry Potter"
+ *              movie_slug:
+ *                type: array
+ *                description: The slugs of the movies where the quote appears
+ *                items:
+ *                  type: string
+ *                example: ["azkaban", "phoenix"]
+ *     responses:
+ *       200:
+ *         description: The created quote
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                   description: The quote ID
+ *                   example: 60b6c5edfc13ae148e000021
+ *                 sentence:
+ *                   type: string
+ *                   description: The quote sentence
+ *                   example: "I solemnly swear that I am up to no good."
+ *                 author:
+ *                   type: string
+ *                   description: The author of the quote
+ *                   example: "Harry Potter"
+ *                 movie_slug:
+ *                   type: array
+ *                   description: The slugs of the movies where the quote appears
+ *                   items:
+ *                     type: string
+ *                   example: ["azkaban", "phoenix"]
+ *                 movie_id:
+ *                   type: array
+ *                   description: The IDs of the movies where the quote appears
+ *                   items:
+ *                     type: string
+ *                   example: ["60b6c5edfc13ae148e000022"]
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /{id}:
+ *   delete:
+ *     summary: Delete a quote by ID
+ *     tags: [Quotes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The quote ID
+ *     responses:
+ *       200:
+ *         description: The deleted quote
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                   description: The quote ID
+ *                   example: 60b6c5edfc13ae148e000021
+ *                 sentence:
+ *                   type: string
+ *                   description: The quote sentence
+ *                   example: "I solemnly swear that I am up to no good."
+ *                 author:
+ *                   type: string
+ *                   description: The author of the quote
+ *                   example: "Harry Potter"
+ *                 movie_slug:
+ *                   type: array
+ *                   description: The slugs of the movies where the quote appears
+ *                   items:
+ *                     type: string
+ *                   example: ["azkaban", "phoenix"]
+ *       404:
+ *         description: Quote not found
+ *       500:
+ *         description: Internal server error
+ */
+
+/**
+ * @swagger
+ * /{id}:
+ *   put:
+ *     summary: Update a quote by ID
+ *     tags: [Quotes]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: The quote ID
+ *       - in: body
+ *         name: quote
+ *         schema:
+ *           type: object
+ *           required:
+ *             - sentence
+ *             - author
+ *             - movie_slug
+ *           properties:
+ *             sentence:
+ *               type: string
+ *               description: The quote sentence
+ *               example: "I solemnly swear that I am up to no good."
+ *             author:
+ *               type: string
+ *               description: The author of the quote
+ *               example: "Harry Potter"
+ *             movie_slug:
+ *               type: array
+ *               description: The slugs of the movies where the quote appears
+ *               items:
+ *                 type: string
+ *               example: ["azkaban", "phoenix"]
+ *     responses:
+ *       200:
+ *         description: The updated quote
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 _id:
+ *                   type: string
+ *                   description: The quote ID
+ *                   example: 60b6c5edfc13ae148e000021
+ *                 sentence:
+ *                   type: string
+ *                   description: The quote sentence
+ *                   example: "I solemnly swear that I am up to no good."
+ *                 author:
+ *                   type: string
+ *                   description: The author of the quote
+ *                   example: "Harry Potter"
+ *                 movie_slug:
+ *                   type: array
+ *                   description: The slugs of the movies where the quote appears
+ *                   items:
+ *                     type: string
+ *                   example: ["azkaban", "phoenix"]
+ *       404:
+ *         description: Quote not found
+ *       500:
+ *         description: Internal server error
+ */
+
 app.get('/', async (req, res) => {
+  const page = parseInt(Math.abs(req.query.page)) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const skip = (page - 1) * limit;
+
   try {
-    const quotes = await Quote.find();
-    res.send(quotes);
+    const total = await Quote.countDocuments();
+    const quotes = await Quote.find().skip(skip).limit(limit);
+    const response = {
+      total,
+      page,
+      limit,
+      data: quotes,
+    };
+    res.send(response);
   } catch (error) {
     res.status(500).send(error);
   }
