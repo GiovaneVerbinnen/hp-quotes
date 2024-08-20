@@ -1,16 +1,24 @@
 {
   "name": "hp-quotes",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "1.0.1",
+  "description": "A simple application for managing Harry Potter quotes.",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "dev": "npx nodemon --no-warnings src/index.js",
-    "lint": "eslint ./*.js ",
-    "lint:fix": "eslint --fix ./*.js "
+    "lint": "eslint 'src/**/*.js'",
+    "lint:fix": "eslint 'src/**/*.js' --fix",
+    "test": "echo \"No tests specified\" && exit 0",
+    "prettier": "npx prettier --write 'src/**/*.js'"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "quotes",
+    "express",
+    "mongoose",
+    "swagger"
+  ],
+  "author": "Giovane Verbinnen",
   "license": "ISC",
-  "description": "",
   "type": "module",
   "dependencies": {
     "bcrypt": "^5.1.1",
@@ -25,6 +33,7 @@
     "@rocketseat/eslint-config": "^2.2.2",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
+    "prettier": "^3.0.0",
     "globals": "^15.9.0",
     "swagger-autogen": "^2.23.7"
   }

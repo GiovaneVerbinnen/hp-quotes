@@ -1,5 +1,9 @@
-import charactersList from '../constants/characters.json' with { type: 'json' };
+import fs from 'fs';
+import path from 'path';
 import { Character, Movie } from '../model/index.js';
+
+const filePath = path.resolve('src/constants/characters.json');
+const charactersList = JSON.parse(fs.readFileSync(filePath, 'utf8'));
 
 export async function seedCharacter() {
   try {
