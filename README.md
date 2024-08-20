@@ -1,14 +1,14 @@
-🎬 Harry Potter Quotes API
+# 🎬 Harry Potter Quotes API
 Uma API para gerenciar citações dos filmes de Harry Potter. 
 Com funcionalidades para CRUD de citações, relatórios de usuários e integração com o MongoDB.
 
-🚀 Início Rápido
+## 🚀 Início Rápido
 Siga estes passos para configurar e rodar a API localmente.
 
 Pré-requisitos
 Node.js (versão 20 ou superior)
 MongoDB (local ou MongoDB Atlas)
-📦 Instalação
+### 📦 Instalação
 Clone o repositório:
 ```bash
 git clone https://github.com/GiovaneVerbinnen/hp-quotes.git
@@ -30,7 +30,7 @@ npm start
 > O servidor estará disponível em http://localhost:3000.
 
 
-📚 Endpoints
+#### 📚 Endpoints
 🌟 Citações
 GET /quotes - Retorna todas as citações.
 POST /quotes - Adiciona uma nova citação.
@@ -53,7 +53,8 @@ Crie uma branch para suas alterações (git checkout -b feature/novo-recurso).
 Faça as alterações e commit (git commit -am 'Adiciona novo recurso').
 Faça um push para a branch (git push origin feature/novo-recurso).
 Crie um Pull Request.
-🔧 Ferramentas e Tecnologias
+
+#####🔧 Ferramentas e Tecnologias
 - Node.js
 - Express
 - Mongoose
